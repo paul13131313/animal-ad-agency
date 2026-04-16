@@ -314,18 +314,6 @@
       color: var(--muted);
       letter-spacing: 0.05em;
     }
-    .thumb-duration {
-      position: absolute;
-      bottom: 4px;
-      right: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      color: var(--text);
-      background: rgba(0, 0, 0, 0.7);
-      padding: 2px 6px;
-      border-radius: 2px;
-    }
-
     /* メインプレイヤー */
     .player-wrap {
       position: relative;
@@ -817,11 +805,6 @@
           card.insertBefore(fb, card.firstChild);
         };
         card.appendChild(img);
-
-        var dur = document.createElement('div');
-        dur.className = 'thumb-duration';
-        dur.textContent = m.duration;
-        card.appendChild(dur);
 
         grid.appendChild(card);
       });
