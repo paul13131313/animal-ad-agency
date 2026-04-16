@@ -605,7 +605,7 @@
        ============================================================ -->
   <section class="hero" id="top">
     <div class="hero-video-wrap">
-      <video id="hero-video" autoplay muted loop playsinline preload="none" aria-label="Animal Ad Agency ヒーロー映像">
+      <video id="hero-video" autoplay muted loop playsinline preload="auto" aria-label="Animal Ad Agency ヒーロー映像">
         <source src="./assets/pandacar.mp4" type="video/mp4">
       </video>
     </div>
@@ -837,28 +837,19 @@
       var player = document.getElementById('main-player');
       var fallback = document.getElementById('player-fallback');
 
+      // まず表示切替
+      fallback.style.display = 'none';
+      player.style.display = 'block';
+
       player.pause();
       player.src = m.src;
       player.load();
+      player.play().catch(function() {});
 
-      // 動画読み込み可能か判定
-      player.oncanplay = function() {
-        fallback.style.display = 'none';
-        player.style.display = 'block';
-        player.play().catch(function() {});
-      };
       player.onerror = function() {
         player.style.display = 'none';
         fallback.style.display = 'flex';
       };
-
-      // タイムアウトでフォールバック表示
-      setTimeout(function() {
-        if (player.readyState < 2) {
-          player.style.display = 'none';
-          fallback.style.display = 'flex';
-        }
-      }, 2000);
     }
 
     /* ----------------------------------------------------------
@@ -888,6 +879,7 @@
        INIT
        ---------------------------------------------------------- */
     buildThumbs();
+    selectMovie(0);
 
     // hero動画エラー時、非表示にしてフォールバック背景を見せる
     var heroVideo = document.getElementById('hero-video');
