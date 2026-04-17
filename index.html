@@ -134,14 +134,13 @@
       padding: 0 24px;
     }
     .hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(3.5rem, 12vw, 10rem);
-      color: var(--primary);
-      letter-spacing: 0.06em;
-      line-height: 0.95;
       opacity: 0;
       transform: translateY(40px);
       animation: fadeUp 1s 0.3s forwards;
+    }
+    .hero-logo {
+      width: clamp(280px, 60vw, 700px);
+      height: auto;
     }
     .hero-sub {
       font-size: clamp(0.9rem, 2vw, 1.2rem);
@@ -610,7 +609,7 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <h1 class="hero-title">ANIMAL<br>AD AGENCY</h1>
+      <h1 class="hero-title"><img src="assets/logo.png" alt="ANIMAL AD AGENCY" class="hero-logo"></h1>
       <p class="hero-sub">動物たちが、あなたの商品・サービスを広告します。</p>
       <a href="#movies" class="hero-cta">WATCH MOVIES &darr;</a>
     </div>
@@ -778,6 +777,16 @@
         src: "./assets/sharkdetective.mp4",
         duration: "0:30",
         initial: "S"
+      },
+      {
+        id: 6,
+        title: "HIPPO \u00d7 SODA",
+        description: "\u30ab\u30d0\u304c\u98f2\u3080\u3001\u30d5\u30a1\u30f3\u30ad\u30fc\u306a\u5473\u306e\u30bd\u30fc\u30c0CM",
+        thumbnail: "./assets/thumb_hipposoda.jpg",
+        src: "./assets/hipposoda.mp4",
+        duration: "0:30",
+        initial: "H",
+        landscape: true
       }
     ];
 
